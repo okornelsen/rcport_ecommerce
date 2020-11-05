@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-  has_many :productscategories
-  has_many :categories, through: :productscategories
+  has_many :productcategories
+  has_many :categories, through: :productcategories
 
   validates :name, :price, :sku, presence: true
   validates :sku, numericality: {only_integer: true}
