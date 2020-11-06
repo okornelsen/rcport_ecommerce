@@ -1,0 +1,17 @@
+@import "bootstrap";
+
+.fixed_nav{
+  position:fixed;
+  width:100%;
+  z-index: 1000000;
+  top:0;
+}
+
+.progress{
+height: 5px;
+}
+
+.progress-bar{
+  height: 5px;
+  background: #243153;
+}
