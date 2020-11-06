@@ -3,15 +3,21 @@
 <div class="card-deck">
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-lg-3 col-md-4 col-sm-6 mt-4">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-text"><%= link_to product.name, product %></p>
+      <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
+        <a class="hover_card" href="<%= product_path product.id %>">
+          <div class="card">
+            <div class="car">
+              <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+            </div>
+            <div class="info">
+              <h1><%= product.price %></h1>
+              <h2><%= product.name %></h2>
+            </div>
+            <div class="sizes">
+              <button type="button" class="btn btn-outline-dark">Add to Cart</button>
+            </div>
           </div>
-          <div class="card-footer">
-            <small class="text-muted"><%= product.brand %></small>
-          </div>
-        </div>
+        </a>
       </div>
     <% end %>
    </div>

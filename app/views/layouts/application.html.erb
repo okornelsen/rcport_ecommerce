@@ -10,51 +10,7 @@
   </head>
 
   <body>
-    <div class="fixed_nav">
-      <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="row collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="col-sm">
-            <a class="navbar-brand ml-5" href="<%= root_path %>">
-              <img src="/assets/rcport.png" alt="RC-Port" width="100">
-            </a>
-            </div>
-            <div class="col-sm">
-            <%= form_with(url: search_home_index_path, method: :get, local: true, class: "form-inline") do %>
-                <div class="md-form" style="display:flex">
-                  <%= text_field_tag(:keywords, nil, class: :input, placeholder: 'Search', class: "form-control mr-sm-2") %>
-                  <%= submit_tag("Search", class: "btn btn-dark") %>
-                </div>
-              <% end %>
-            </div>
-            <div class="col-sm d-flex flex-row-reverse mr-5">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link dark_text" href="<%= products_path %>">Home</a></li>
-                <li class="nav-item"><a class="nav-link dark_text" href="<%= products_path %>">Products</a></li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categories
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <div class="progress">
-        <div class="progress-bar" id="myBar" role="progressbar" style='width:<%= 0 %>%' aria-valuenow="0" aria-valuemin="40" aria-valuemax="100"></div>
-      </div>
-    </div>
-
+    <%= render partial: 'shared/navigation_menu' %>
     <section class="section">
       <div class="container">
         <%= yield %>
@@ -63,8 +19,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-      window.onscroll = function() {myFunction()};
+    <script>window.onscroll = function() {myFunction()};
       function myFunction() {
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;

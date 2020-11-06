@@ -1,3 +1,6 @@
+$primary: #e4b61a;
+$dark: #2c3258;
+
 @import "bootstrap";
 
 .fixed_nav{
@@ -13,5 +16,70 @@ height: 5px;
 
 .progress-bar{
   height: 5px;
-  background: #243153;
+  background: $primary;
+}
+
+.card-deck{
+  margin-top: 50px;
+}
+
+.card-deck a{
+  text-decoration: none;
+}
+
+.card{
+  border-radius: 15px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  height: 380px;
+}
+
+.car{
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 1rem;
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.car:hover{
+  transform: scale(1.1);
+}
+
+.car img{
+  width: 15rem;
+}
+
+.info{
+  height: 100px;
+}
+
+.info h1{
+  font-size: 1.7rem;
+  color: #dfdfdf;
+  background: $dark;
+  padding: 0rem 1rem;
+  box-shadow: 0 2px 5px black;
+}
+
+.info h2{
+  font-size: 1rem;
+  color: $dark;
+  padding: 0rem 1rem;
+}
+
+.sizes{
+  display: flex;
+  justify-content: center;
+  vertical-align: bottom;
+}
+
+.sizes button{
+  padding: 0.5rem 2rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 2px 5px black;
+  width: 80%;
+  color: $dark;
 }
