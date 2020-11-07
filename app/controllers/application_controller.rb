@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_categories_dropdown
   def set_categories_dropdown
-    @categories_dropdown = Category.all
+    @categories_dropdown = Category.order(:vehicle_type)
   end
 end

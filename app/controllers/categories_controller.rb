@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.order(:vehicle_type)
   end
 
   def show
