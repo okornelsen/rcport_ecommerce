@@ -1,8 +1,8 @@
-﻿vehicle_type
-Touring
-Scale Model
-Buggy
-Monster Truck
-Crawler
-Stadium Truck
-Short Course
+﻿vehicle_type,description
+Touring,"Touring Vehicles are an on-road car. They are really fast, and they are great for running on hard, flat surfaces like asphalt, concrete or carpet."
+Scale Replica,"Scale Replica Vehicles are unlike any other. These pint-sized replicas come as close to the real deal as possible."
+Buggy,"Buggies are a great all-rounder, and the buggy is also an all-terrain vehicle. Because of this, buggies are perfect for beginners and those who don’t know what they will enjoy most."
+Monster Truck,"Monster Trucks are the big boys of off-road. They are the most popular type of remote-controlled vehicle and are perfectly designed for pushing, pulling, and crushing."
+Crawler,"rock crawlers are built to climb rocks and terrains other cars can’t handle. They are generally for slow speed, high torque, and precision driving, and they are very upgradable."
+Stadium Truck,"Stadium Trucks are a cross between Buggy and Monster truck. They are designed to run on a temporary off-road track builds on a stadium."
+Short Course,"Short Course Vehicles are advanced trucks. They are made for competitive racing and bashing."

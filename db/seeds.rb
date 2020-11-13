@@ -16,7 +16,8 @@ products = load_csv("rc_cars(nodetails).csv")
 
 categories.each do |category|
   Category.create(
-    vehicle_type: category["vehicle_type"]
+    vehicle_type: category["vehicle_type"],
+    description:  category["description"]
   )
 end
 
