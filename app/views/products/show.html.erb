@@ -1,2 +1,45 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="card-deck">
+  <div class="row">
+    <div class="col-sm mt-4">
+      <div class="card card-show">
+        <div class="car car-show">
+          <img class="card-img-top" src="/assets/<%= @product.image %>" alt="Image">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg mt-4">
+      <div class="card card-show">
+        <div class="info-details">
+          <h2><%= @product.name %></h2>
+          <div class="row mt-4">
+            <div class="col m-auto">
+              <h1 class="align-text-top"><%= @product.price %></h1>
+            </div>
+            <div class="col flex-direction-column m-auto text-right mr-4">
+              <h4 class="stock text-align-bottom">In Stock
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                  <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+                </svg>
+              </h4>
+              <h5>SKU#: <%= @product.sku %></h5>
+            </div>
+          </div>
+          <hr/>
+          <div class="m-4">
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" placeholder="Quantity" aria-label="Quantity" aria-describedby="basic-addon1">
+              <div class="input-group-append input-group-lg w-75">
+                <button type="button" class="btn btn-outline-dark w-100">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p><%= @product.description %></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,11 +3,11 @@
     <% @categories.each do |category| %>
       <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
         <a class="hover_card" href="<%= category_path category.id %>">
-          <div class="card">
-            <div class="car">
+          <div class="card card-category">
+            <div class="car car-index">
               <img class="card-img-top" src="/assets/<%= category.products.first.image %>" alt="Image">
             </div>
-            <div class="info">
+            <div class="info info-category">
               <h1><%= category.vehicle_type %></h1>
               <h3><%= category.description %></h3>
             </div>

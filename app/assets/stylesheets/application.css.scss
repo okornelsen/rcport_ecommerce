@@ -3,6 +3,12 @@ $dark: #2c3258;
 
 @import "bootstrap";
 
+hr {
+  margin: 0rem 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .fixed_nav{
   position:fixed;
   width:100%;
@@ -33,7 +39,15 @@ height: 5px;
   height: 380px;
 }
 
-.car{
+.card-show{
+  height: 600px;
+}
+
+.card-category{
+  height: 400px;
+}
+
+.car-index{
   height: 230px;
   display: flex;
   align-items: center;
@@ -42,36 +56,81 @@ height: 5px;
   transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
 
+.car-show{
+  margin: auto;
+  padding: 5rem 5rem;
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
 .car:hover{
   transform: scale(1.1);
 }
 
-.car img{
+.car-index img{
   width: 15rem;
 }
 
 .info{
   height: 100px;
+
+  h1{
+    font-size: 1.7rem;
+    color: #dfdfdf;
+    background: $dark;
+    padding: 0rem 1rem;
+    box-shadow: 0 2px 5px black;
+  }
+
+  h2{
+    font-size: 1rem;
+    color: $dark;
+    padding: 0rem 1rem;
+  }
+
+  h3{
+    font-size: 0.9rem;
+    color: $dark;
+    padding: 0rem 1rem;
+  }
 }
 
-.info h1{
-  font-size: 1.7rem;
-  color: #dfdfdf;
-  background: $dark;
-  padding: 0rem 1rem;
-  box-shadow: 0 2px 5px black;
+.info-details{
+  h1{
+    font-size: 3rem;
+    padding: 0rem 2rem;
+  }
+  h2{
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    color: #dfdfdf;
+    background: $dark;
+    padding: 0rem 2rem;
+    box-shadow: 0 2px 5px black;
+  }
+  h4{
+    font-size: 1.3rem;
+  }
+  h5{
+    font-size: 1rem;
+  }
+
+  .stock{
+    color: green;
+  }
+
+  svg{
+    vertical-align: bottom;
+  }
+
+  p{
+    font-size: 0.9rem;
+    padding: 0rem 2rem;
+    text-align: justify;
+  }
 }
 
-.info h2{
-  font-size: 1rem;
-  color: $dark;
-  padding: 0rem 1rem;
-}
-
-.info h3{
-  font-size: 0.7rem;
-  color: $dark;
-  padding: 0rem 1rem;
+.info-category{
+  height: 150px;
 }
 
 .sizes{

@@ -12,8 +12,14 @@
             </div>
             <div class="col-sm">
             <%= form_with(url: search_home_index_path, method: :get, local: true, class: "form-inline") do %>
-                <div class="md-form" style="display:flex">
-                  <%= text_field_tag(:keywords, nil, class: :input, placeholder: 'Search', class: "form-control mr-sm-2") %>
+                <div class="md-form input-group" style="display:flex">
+                  <%= text_field_tag(:keywords, nil, class: :input, placeholder: 'Search', class: "form-control") %>
+                  <select class="custom-select btn btn-outline-dark" id="inputGroupSelect02">
+                    <option selected value="0">All Products</option>
+                    <option value="1">On Sale</option>
+                    <option value="2">New</option>
+                    <option value="3">Recently Updated</option>
+                  </select>
                   <%= submit_tag("Search", class: "btn btn-dark") %>
                 </div>
               <% end %>
