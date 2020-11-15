@@ -1,6 +1,8 @@
 $primary: #e4b61a;
 $dark: #2c3258;
 
+$card_height: 400px;
+
 @import "bootstrap";
 
 hr {
@@ -17,6 +19,7 @@ hr {
 }
 
 .progress{
+z-index: 1000001;
 height: 5px;
 }
 
@@ -36,15 +39,16 @@ height: 5px;
 .card{
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0,0,0,0.2);
-  height: 380px;
 }
 
 .card-show{
-  height: 600px;
+  @extend .card;
+  height: $card_height * 1.5;
 }
 
 .card-category{
-  height: 400px;
+  @extend .card;
+  height: $card_height;
 }
 
 .car-index{
@@ -147,4 +151,21 @@ height: 5px;
   box-shadow: 0 2px 5px black;
   width: 80%;
   color: $dark;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 30px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pag{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  height: 100px;
 }
