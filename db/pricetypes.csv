@@ -1,0 +1,5 @@
+price_type,description
+Base,The everyday price of the product
+New,The products first 3 days of being new to the store
+Recently Updated,The product has been updated in the past 3 days
+On Sale,The product has a reduced price
