@@ -4,7 +4,19 @@
       <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
         <a class="hover_card" href="<%= product_path product.id %>">
           <div class="card">
-          <p><%= product.pricetype.name %></p>
+            <% if product.pricetype.name == "New" %>
+              <div class="card_banner_new">
+                <h2><%= product.pricetype.name %>!</h2>
+              </div>
+            <% elsif product.pricetype.name == "On Sale" %>
+              <div class="card_banner_sale">
+                <h2><%= product.pricetype.name %>!</h2>
+              </div>
+            <% elsif product.pricetype.name == "Recently Updated" %>
+              <div class="card_banner_updated">
+                <h4><%= product.pricetype.name %>!</h4>
+              </div>
+            <% end %>
             <div class="car car-index">
               <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
             </div>
