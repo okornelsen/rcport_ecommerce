@@ -19,6 +19,7 @@ hr {
 }
 
 .progress{
+z-index: 1000001;
 height: 5px;
 }
 
@@ -38,7 +39,6 @@ height: 5px;
 .card{
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0,0,0,0.2);
-  height: $card_height;
 }
 
 .card-show{
@@ -49,36 +49,6 @@ height: 5px;
 .card-category{
   @extend .card;
   height: $card_height;
-}
-
-.card_banner{
-  position:absolute;
-  z-index: 100000;
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  opacity: 80%;
-}
-
-.card_banner_new{
-  @extend .card_banner;
-  background-color: #e4b61a;
-  color: $dark;
-}
-
-.card_banner_sale{
-  @extend .card_banner;
-  background-color: #e42e1a;
-  color: white;
-}
-
-.card_banner_updated{
-  @extend .card_banner;
-  background-color: $dark;
-  color: white;
-  padding-top: 5px;
 }
 
 .car-index{
@@ -181,4 +151,21 @@ height: 5px;
   box-shadow: 0 2px 5px black;
   width: 80%;
   color: $dark;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 30px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pag{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  height: 100px;
 }

@@ -4,5 +4,7 @@ class Product < ApplicationRecord
   belongs_to :pricetype
 
   validates :name, :price, :sku, presence: true
-  validates :sku, numericality: {only_integer: true}
+  validates :sku, numericality: { only_integer: true }
+
+  paginates_per 20
 end
