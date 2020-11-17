@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_032839) do
+ActiveRecord::Schema.define(version: 2020_11_17_011824) do
 
   create_table "categories", force: :cascade do |t|
     t.string "vehicle_type"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_032839) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "pricetype_id", null: false
+    t.integer "saleprice"
     t.index ["pricetype_id"], name: "index_products_on_pricetype_id"
   end
 

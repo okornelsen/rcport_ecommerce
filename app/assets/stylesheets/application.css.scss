@@ -5,6 +5,10 @@ $card_height: 400px;
 
 @import "bootstrap";
 
+section{
+  margin-top: 80px;
+}
+
 hr {
   margin: 0rem 1rem;
   border: 0;
@@ -19,17 +23,12 @@ hr {
 }
 
 .progress{
-z-index: 1000001;
 height: 5px;
 }
 
 .progress-bar{
   height: 5px;
   background: $primary;
-}
-
-.card-deck{
-  margin-top: 80px;
 }
 
 .card-deck a{
@@ -39,6 +38,7 @@ height: 5px;
 .card{
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  height: $card_height;
 }
 
 .card-show{
@@ -49,6 +49,36 @@ height: 5px;
 .card-category{
   @extend .card;
   height: $card_height;
+}
+
+.card_banner{
+  position:absolute;
+  z-index: 100000;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  opacity: 80%;
+}
+
+.card_banner_new{
+  @extend .card_banner;
+  background-color: #e4b61a;
+  color: $dark;
+}
+
+.card_banner_sale{
+  @extend .card_banner;
+  background-color: #e42e1a;
+  color: white;
+}
+
+.card_banner_updated{
+  @extend .card_banner;
+  background-color: $dark;
+  color: white;
+  padding-top: 5px;
 }
 
 .car-index{
@@ -163,9 +193,16 @@ height: 5px;
   border-left-width: 0;
 }
 
+.pagination {
+  .first, .last, .page{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+}
+
 .pag{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: 20px;
-  height: 100px;
 }

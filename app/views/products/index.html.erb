@@ -12,10 +12,6 @@
               <div class="card_banner_sale">
                 <h2><%= product.pricetype.name %>!</h2>
               </div>
-            <% elsif product.pricetype.name == "Recently Updated" %>
-              <div class="card_banner_updated">
-                <h4><%= product.pricetype.name %>!</h4>
-              </div>
             <% end %>
             <div class="car car-index">
               <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
