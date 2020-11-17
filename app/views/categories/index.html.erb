@@ -2,7 +2,7 @@
   <div class="row">
     <% @categories.each do |category| %>
       <% next if category.vehicle_type == "All Categories"%>
-      <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
+      <div class="col-lg-4 col-md-6 mt-4">
         <a class="hover_card" href="<%= category_path category.id %>">
           <div class="card card-category">
             <div class="car car-index">
@@ -19,20 +19,13 @@
         </a>
       </div>
     <% end %>
-   </div>
-</div>
-
-<h1>Filters</h1>
-
-<div class="card-deck">
-  <div class="row">
     <% @filters.each do |filter| %>
       <% if filter.products.size > 0 %>
-        <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
+        <div class="col-lg-4 col-md-6 mt-4">
           <a class="hover_card" href="<%= pricetype_path filter.id %>">
             <div class="card card-category">
               <div class="car car-index">
-                <img class="card-img-top" src="/assets/<%= filter.products.first.image %>" alt="Image">
+                <img class="card-img-top" src="/assets/<%= filter.products.last.image %>" alt="Image">
               </div>
               <div class="info info-category">
                 <h1><%= filter.name %></h1>

@@ -36,6 +36,10 @@ height: 5px;
 }
 
 .card{
+  border:none
+}
+
+.card:hover{
   border-radius: 15px;
   box-shadow: 0 5px 5px rgba(0,0,0,0.2);
   height: $card_height;
@@ -46,7 +50,7 @@ height: 5px;
   height: $card_height * 1.5;
 }
 
-.card-category{
+.card-category:hover{
   @extend .card;
   height: $card_height;
 }
@@ -72,13 +76,6 @@ height: 5px;
   @extend .card_banner;
   background-color: #e42e1a;
   color: white;
-}
-
-.card_banner_updated{
-  @extend .card_banner;
-  background-color: $dark;
-  color: white;
-  padding-top: 5px;
 }
 
 .car-index{
@@ -163,6 +160,11 @@ height: 5px;
   }
 }
 
+.info-home{
+  @extend .info;
+  height: auto;
+}
+
 .info-category{
   height: 150px;
 }
@@ -205,8 +207,4 @@ height: 5px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
-}
-
-.strikethrough{
-  text-decoration: line-through;
 }

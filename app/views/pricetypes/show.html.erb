@@ -17,7 +17,11 @@
               <img class="card-img-top" src="/assets/<%= filter.image %>" alt="Image">
             </div>
             <div class="info">
-              <h1><%= filter.price %></h1>
+            <% if filter.saleprice.nil? %>
+              <h1><%= number_to_currency(filter.price.to_i / 100) %></h1>
+            <% else %>
+              <h1><del><%= number_to_currency(filter.price.to_i / 100) %></del> <%= number_to_currency(filter.saleprice.to_i / 100) %></h1>
+            <% end %>
               <h2><%= filter.name %></h2>
             </div>
             <div class="sizes">

@@ -1,2 +1,44 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<br>
+<div class="border-bottom">
+  <h1 class="display-5">RC's on Sale</h1>
+  <div class="card-deck mb-3">
+    <div class="row">
+      <% @products_on_sale.each do |product| %>
+        <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
+          <a class="hover_card" href="<%= product_path product.id %>">
+            <div class="">
+              <div class="car car-index">
+                <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+              </div>
+              <div class="info-home">
+                <h2><%= product.name %></h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="border-bottom">
+  <h1 class="display-5">Newest Arrivals</h1>
+  <div class="card-deck mb-3">
+    <div class="row">
+      <% @products_new.each do |product| %>
+        <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
+          <a class="hover_card" href="<%= product_path product.id %>">
+            <div class="">
+              <div class="car car-index">
+                <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+              </div>
+              <div class="info">
+                <h2><%= product.name %></h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

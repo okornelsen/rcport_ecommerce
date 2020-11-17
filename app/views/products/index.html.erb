@@ -20,7 +20,7 @@
             <% if product.saleprice.nil? %>
               <h1><%= number_to_currency(product.price.to_i / 100) %></h1>
             <% else %>
-              <h1><span class="strikethrough"><%= number_to_currency(product.price.to_i / 100) %></span> <%= number_to_currency(product.saleprice.to_i / 100) %></h1>
+              <h1><del><%= number_to_currency(product.price.to_i / 100) %></del> <%= number_to_currency(product.saleprice.to_i / 100) %></h1>
             <% end %>
               <h2><%= product.name %></h2>
             </div>
