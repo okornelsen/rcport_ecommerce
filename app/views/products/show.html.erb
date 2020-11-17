@@ -14,7 +14,11 @@
           <h2><%= @product.name %></h2>
           <div class="row mt-4">
             <div class="col m-auto">
-              <h1 class="align-text-top"><%= @product.price %></h1>
+            <% if @product.saleprice.nil? %>
+              <h1><%= number_to_currency(@product.price.to_i / 100) %></h1>
+            <% else %>
+              <h1><span class="strikethrough"><%= number_to_currency(@product.price.to_i / 100) %></span><%= number_to_currency(@product.saleprice.to_i / 100) %></h1>
+            <% end %>
             </div>
             <div class="col flex-direction-column m-auto text-right mr-4">
               <h4 class="stock text-align-bottom">In Stock
@@ -27,6 +31,8 @@
             </div>
           </div>
           <hr/>
+          <p><%= @not_new_date %></p>
+          <p><%= @today %></p>
           <div class="m-4">
             <div class="input-group input-group-lg">
               <input type="text" class="form-control" placeholder="Quantity" aria-label="Quantity" aria-describedby="basic-addon1">

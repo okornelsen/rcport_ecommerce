@@ -44,7 +44,8 @@ products.each do |product|
     terrain_type: product["terrain_type"],
     drive_train:  product["drive_train"],
     scale:        product["scale"],
-    image:        product["image"]
+    image:        product["image"],
+    saleprice:    product["sale_price"]
   )
 
   if product_to_create.valid?

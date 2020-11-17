@@ -6,11 +6,24 @@
         <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
           <a class="hover_card" href="<%= product_path product.id %>">
             <div class="card">
+              <% if product.pricetype.name == "New" %>
+                <div class="card_banner_new">
+                  <h2><%= product.pricetype.name %>!</h2>
+                </div>
+              <% elsif product.pricetype.name == "On Sale" %>
+                <div class="card_banner_sale">
+                  <h2><%= product.pricetype.name %>!</h2>
+                </div>
+              <% end %>
               <div class="car car-index">
                 <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
               </div>
               <div class="info">
-                <h1><%= product.price %></h1>
+                <% if product.saleprice.nil? %>
+                  <h1><%= number_to_currency(product.price.to_i / 100) %></h1>
+                <% else %>
+                  <h1><span class="strikethrough"><%= number_to_currency(product.price.to_i / 100) %></span> <%= number_to_currency(product.saleprice.to_i / 100) %></h1>
+                <% end %>
                 <h2><%= product.name %></h2>
               </div>
               <div class="sizes">
