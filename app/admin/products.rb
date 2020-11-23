@@ -9,7 +9,7 @@ ActiveAdmin.register Product do
     column :pricetype_id
     column :saleprice
     column :categories do |product|
-      product.categories.map { |p| p.vehicle_type }.join(", ").html_safe
+      product.categories.map { |p| p.name }.join(", ").html_safe
     end
     actions
   end
@@ -28,7 +28,7 @@ ActiveAdmin.register Product do
       row :pricetype_id
       row :saleprice
       row :categories do |product|
-        product.categories.map { |p| p.vehicle_type }.join(", ").html_safe
+        product.categories.map { |p| p.name }.join(", ").html_safe
       end
     end
   end
@@ -46,13 +46,12 @@ ActiveAdmin.register Product do
       f.input :terrain_type
       f.input :drive_train
       f.input :scale
-      f.input :pricetype_id
+      f.input :pricetype_id, as: :select, collection: Pricetype.select(:name, :id)
       f.input :saleprice
       f.has_many :productcategories, allow_destroy: true do |nf|
         nf.input :category
       end
     end
-
     f.actions
   end
 end

@@ -1,5 +1,5 @@
 <div class="card-deck">
-  <h2>Found <%= pluralize(@products.count, "Product") %> for: <%= params[:keywords] %> - <%= @category.first.vehicle_type %></h2>
+  <h2>Found <%= pluralize(@products.count, "Product") %> for: <%= params[:keywords] %> - <%= @category.first.name %></h2>
     <% if @products.count > 0 %>
     <div class="row">
       <% @products.each do |product| %>

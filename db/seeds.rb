@@ -18,7 +18,7 @@ pricetypes = load_csv("pricetypes.csv")
 
 categories.each do |category|
   Category.create(
-    vehicle_type: category["vehicle_type"],
+    name: category["vehicle_type"],
     description:  category["description"]
   )
 end
@@ -51,7 +51,7 @@ products.each do |product|
   if product_to_create.valid?
     pc = product["vehicle_type"].split(",")
     pc.each do |p|
-      category = Category.find_by(vehicle_type: p)
+      category = Category.find_by(name: p)
       next if category.nil?
 
       Productcategory.create(
