@@ -14,7 +14,7 @@
         <%= form_with(url: search_home_index_path, method: :get, local: true, class: "form-inline") do %>
             <div class="md-form input-group" style="display:flex">
               <%= text_field_tag(:keywords, nil, class: :input, placeholder: 'Search', class: "form-control") %>
-              <%= select_tag(:category_s, options_for_select(@categories_dropdown.collect{ |c| [c.name, c.id]})) %>
+              <%= select_tag(:category_s, options_from_collection_for_select(@categories_dropdown.all, :id, :name)) %>
               <%= submit_tag("Search", class: "btn btn-dark") %>
             </div>
           <% end %>

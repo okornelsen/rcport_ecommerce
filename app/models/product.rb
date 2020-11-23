@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :productcategories
+  has_many :productcategories, dependent: :destroy
   has_many :categories, through: :productcategories
   accepts_nested_attributes_for :productcategories, allow_destroy: true
 
