@@ -63,3 +63,4 @@ products.each do |product|
     puts "Error with #{product_to_create.inspect}"
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
