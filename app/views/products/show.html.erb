@@ -4,7 +4,9 @@
       <div class="card-show">
                 <h2><%= @product.pricetype.name %>!</h2>
         <div class="car car-show">
-          <img class="card-img-top" src="/assets/<%= @product.image %>" alt="Image">
+          <% if @product.image.present? %>
+            <%= image_tag @product.image, class:"card-img-top" %>
+          <% end %>
         </div>
       </div>
     </div>

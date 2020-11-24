@@ -6,7 +6,9 @@
         <a class="hover_card" href="<%= category_path category.id %>">
           <div class="card card-category">
             <div class="car car-index">
-              <img class="card-img-top" src="/assets/<%= category.products.first.image %>" alt="Image">
+              <% if category.products.last.image.present? %>
+                <%= image_tag category.products.last.image, class:"card-img-top" %>
+              <% end %>
             </div>
             <div class="info info-category">
               <h1><%= category.name %></h1>

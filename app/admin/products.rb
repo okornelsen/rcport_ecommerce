@@ -1,15 +1,15 @@
 ActiveAdmin.register Product do
-  permit_params :name, :price, :sku, :description, :part_no, :brand, :terrain_type, :drive_train, :scale, :pricetype_id, :saleprice, productcategories_attributes: %i[id product_id category_id _destroy]
+  permit_params :name, :price, :sku, :description, :part_no, :brand, :terrain_type, :drive_train,
+                :scale, :pricetype_id, :saleprice, :image,
+                productcategories_attributes: %i[id product_id category_id _destroy]
 
   index do
     selectable_column
     column :name
     column :price
     column :sku
-    column :pricetype_id
-    column :saleprice
-    column :categories do |product|
-      product.categories.map { |p| p.name }.join(", ").html_safe
+    column :categories do |prod|
+      prod.categories.map { |p| p.name }.join(", ").html_safe
     end
     actions
   end
@@ -27,8 +27,8 @@ ActiveAdmin.register Product do
       row :scale
       row :pricetype_id
       row :saleprice
-      row :categories do |product|
-        product.categories.map { |p| p.name }.join(", ").html_safe
+      row :categories do |prod|
+        prod.categories.map { |p| p.name }.join(", ").html_safe
       end
     end
   end
@@ -48,6 +48,8 @@ ActiveAdmin.register Product do
       f.input :scale
       f.input :pricetype_id, as: :select, collection: Pricetype.select(:name, :id)
       f.input :saleprice
+      f.input :image_file
+      f.input :image, as: :file
       f.has_many :productcategories, allow_destroy: true do |nf|
         nf.input :category
       end

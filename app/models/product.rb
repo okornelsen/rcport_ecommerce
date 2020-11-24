@@ -8,5 +8,7 @@ class Product < ApplicationRecord
   validates :name, :price, :sku, presence: true
   validates :sku, numericality: { only_integer: true }
 
+  has_one_attached :image
+
   paginates_per 20
 end
