@@ -1,4 +1,14 @@
 <br>
+
+<% if current_user %>
+  <h1><%= current_user.email %></h1>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <h1>You should sign in!</h1>
+  <%= link_to "Sign In", new_user_session_path %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+<% end %>
+
 <div class="border-bottom">
   <h1 class="display-5">RC's on Sale</h1>
   <div class="card-deck mb-3">
