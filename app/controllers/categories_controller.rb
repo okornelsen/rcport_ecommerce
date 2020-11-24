@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.order(:vehicle_type)
+    @categories = Category.order(:name)
     @filters = Pricetype.includes(:products).order(:pricetype)
   end
 

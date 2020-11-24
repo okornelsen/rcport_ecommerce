@@ -8,7 +8,9 @@
           <a class="hover_card" href="<%= product_path product.id %>">
             <div class="">
               <div class="car car-index">
-                <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+                <% if product.image.present? %>
+                  <%= image_tag product.image, class:"card-img-top" %>
+                <% end %>
               </div>
               <div class="info-home">
                 <h2><%= product.name %></h2>
@@ -30,7 +32,9 @@
           <a class="hover_card" href="<%= product_path product.id %>">
             <div class="">
               <div class="car car-index">
-                <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+                <% if product.image.present? %>
+                  <%= image_tag product.image, class:"card-img-top" %>
+                <% end %>
               </div>
               <div class="info">
                 <h2><%= product.name %></h2>

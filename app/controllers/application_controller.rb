@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_categories_dropdown
-    @categories_dropdown = Category.order(:vehicle_type)
+    @categories_dropdown = Category.order(:name)
   end
 
   def update_new_products

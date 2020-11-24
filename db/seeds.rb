@@ -18,8 +18,8 @@ pricetypes = load_csv("pricetypes.csv")
 
 categories.each do |category|
   Category.create(
-    vehicle_type: category["vehicle_type"],
-    description:  category["description"]
+    name:        category["vehicle_type"],
+    description: category["description"]
   )
 end
 
@@ -44,14 +44,18 @@ products.each do |product|
     terrain_type: product["terrain_type"],
     drive_train:  product["drive_train"],
     scale:        product["scale"],
-    image:        product["image"],
     saleprice:    product["sale_price"]
   )
 
   if product_to_create.valid?
+
+    filename = product["image"]
+    filepath = "app/assets/images/" + filename
+    product_to_create.image.attach(io: File.open(filepath), filename: filename)
+
     pc = product["vehicle_type"].split(",")
     pc.each do |p|
-      category = Category.find_by(vehicle_type: p)
+      category = Category.find_by(name: p)
       next if category.nil?
 
       Productcategory.create(
@@ -62,4 +66,7 @@ products.each do |product|
   else
     puts "Error with #{product_to_create.inspect}"
   end
+end
+if Rails.env.development?
+  AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
 end

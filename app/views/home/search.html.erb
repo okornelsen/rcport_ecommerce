@@ -1,5 +1,5 @@
 <div class="card-deck">
-  <h2>Found <%= pluralize(@products.count, "Product") %> for: <%= params[:keywords] %> - <%= @category.first.vehicle_type %></h2>
+  <h2>Found <%= pluralize(@products.count, "Product") %> for: <%= params[:keywords] %> - <%= @category.first.name %></h2>
     <% if @products.count > 0 %>
     <div class="row">
       <% @products.each do |product| %>
@@ -16,7 +16,9 @@
                 </div>
               <% end %>
               <div class="car car-index">
-                <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+                <% if product.image.present? %>
+                  <%= image_tag product.image, class:"card-img-top" %>
+                <% end %>
               </div>
               <div class="info">
                 <% if product.saleprice.nil? %>

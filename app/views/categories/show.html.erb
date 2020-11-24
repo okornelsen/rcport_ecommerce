@@ -14,7 +14,9 @@
               </div>
             <% end %>
             <div class="car car-index">
-              <img class="card-img-top" src="/assets/<%= product.image %>" alt="Image">
+              <% if product.image.present? %>
+                <%= image_tag product.image, class:"card-img-top" %>
+              <% end %>
             </div>
             <div class="info">
             <% if product.saleprice.nil? %>
