@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   require "date"
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   before_action :set_categories_dropdown
   before_action :update_new_products
 
@@ -30,5 +32,13 @@ class ApplicationController < ActionController::Base
         product.save
       end
     end
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 end
