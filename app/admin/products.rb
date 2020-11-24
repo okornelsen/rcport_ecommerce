@@ -48,7 +48,6 @@ ActiveAdmin.register Product do
       f.input :scale
       f.input :pricetype_id, as: :select, collection: Pricetype.select(:name, :id)
       f.input :saleprice
-      f.input :image_file
       f.input :image, as: :file
       f.has_many :productcategories, allow_destroy: true do |nf|
         nf.input :category
