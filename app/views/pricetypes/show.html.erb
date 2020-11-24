@@ -14,7 +14,9 @@
               </div>
             <% end %>
             <div class="car car-index">
-              <img class="card-img-top" src="/assets/<%= filter.image %>" alt="Image">
+              <% if filter.image.present? %>
+                <%= image_tag filter.image, class:"card-img-top" %>
+              <% end %>
             </div>
             <div class="info">
             <% if filter.saleprice.nil? %>

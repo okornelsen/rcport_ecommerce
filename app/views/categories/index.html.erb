@@ -6,8 +6,8 @@
         <a class="hover_card" href="<%= category_path category.id %>">
           <div class="card card-category">
             <div class="car car-index">
-              <% if category.products.last.image.present? %>
-                <%= image_tag category.products.last.image, class:"card-img-top" %>
+              <% if category.products.first.image.present? %>
+                <%= image_tag category.products.first.image, class:"card-img-top" %>
               <% end %>
             </div>
             <div class="info info-category">
@@ -27,7 +27,9 @@
           <a class="hover_card" href="<%= pricetype_path filter.id %>">
             <div class="card card-category">
               <div class="car car-index">
-                <img class="card-img-top" src="/assets/<%= filter.products.last.image %>" alt="Image">
+                <% if filter.products.first.image.present? %>
+                  <%= image_tag filter.products.first.image, class:"card-img-top" %>
+                <% end %>
               </div>
               <div class="info info-category">
                 <h1><%= filter.name %></h1>
