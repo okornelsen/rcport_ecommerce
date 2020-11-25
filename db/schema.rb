@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_185048) do
+ActiveRecord::Schema.define(version: 2020_11_25_161252) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 2020_11_24_185048) do
     t.index ["pricetype_id"], name: "index_products_on_pricetype_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.string "abbrev"
+    t.integer "gst"
+    t.integer "pst"
+    t.integer "hst"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -109,7 +119,10 @@ ActiveRecord::Schema.define(version: 2020_11_24_185048) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
+    t.string "address"
+    t.integer "province_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
@@ -118,4 +131,5 @@ ActiveRecord::Schema.define(version: 2020_11_24_185048) do
   add_foreign_key "productcategories", "categories"
   add_foreign_key "productcategories", "products"
   add_foreign_key "products", "pricetypes"
+  add_foreign_key "users", "provinces"
 end

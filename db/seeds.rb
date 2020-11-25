@@ -4,6 +4,7 @@ Productcategory.delete_all
 Category.delete_all
 Product.delete_all
 Pricetype.delete_all
+Province.delete_all
 
 def load_csv(csvfile)
   filename = File.join(Rails.root, "db", csvfile)
@@ -15,6 +16,7 @@ end
 categories = load_csv("categories.csv")
 products = load_csv("products_v2.csv")
 pricetypes = load_csv("pricetypes.csv")
+provinces = load_csv("provinces.csv")
 
 categories.each do |category|
   Category.create(
@@ -27,6 +29,16 @@ pricetypes.each do |pricetype|
   Pricetype.create(
     name:        pricetype["price_type"],
     description: pricetype["description"]
+  )
+end
+
+provinces.each do |province|
+  Province.create(
+    name:         province["name"],
+    abbrev:       province["abbrev"],
+    gst:          province["gst"],
+    pst:          province["pst"],
+    hst:          province["hst"]
   )
 end
 
