@@ -11,8 +11,10 @@
             <div class="col-2">
               <p>Quantity</p>
             </div>
-            <div class="col-2">
+            <div class="col-1">
               <p>Price</p>
+            </div>
+            <div class="col-1">
             </div>
           </div>
         </li>
@@ -25,13 +27,16 @@
             <div class="col-2">
               <p><%= session[:cart][product.id.to_s] %></p>
             </div>
-            <div class="col-2">
+            <div class="col-1">
             <% if product.saleprice.nil? %>
               <p><%= number_to_currency(product.price.to_f / 100 * session[:cart][product.id.to_s], precision: 2) %></p>
             <% else %>
               <p class="text-danger"><del><%= number_to_currency(product.price.to_f / 100 * session[:cart][product.id.to_s], precision: 2) %></del>
               <p><%= number_to_currency(product.saleprice.to_f / 100 * session[:cart][product.id.to_s], precision: 2) %></p>
             <% end %>
+            </div>
+            <div class="col-1">
+              <%= link_to 'X', cart_path(product), method: :delete %>
             </div>
           </div>
         </li>
@@ -43,8 +48,10 @@
             </div>
             <div class="col-2">
             </div>
-            <div class="col-2">
+            <div class="col-1">
               <p><%= number_to_currency(@count.to_f / 100, precision: 2) %></p>
+            </div>
+            <div class="col-1">
             </div>
           </div>
         </li>

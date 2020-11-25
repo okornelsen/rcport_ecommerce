@@ -29,7 +29,7 @@
           </div>
           <div class="sizes">
             <% if cart.include?(product) %>
-              <%= button_to cart_path(product), method: :delete, class:"btn btn-outline-dark quantity-btn"  do %>
+              <%= button_to cart_path(product), method: :patch, class:"btn btn-outline-dark quantity-btn"  do %>
                 -
               <% end %>
               <div class="item_quantity">

@@ -25,12 +25,21 @@ class CartController < ApplicationController
     redirect_to products_path
   end
 
-  def destroy
+  def update
     id = params[:id]
     session[:cart][id] -= 1
 
     session[:cart].delete(id) if session[:cart][id].zero?
 
     redirect_to products_path
+  end
+
+  def destroy
+    id = params[:id]
+    logger.debug(id)
+    logger.debug(session[:cart][id])
+    session[:cart].delete(id)
+
+    redirect_to cart_index_path
   end
 end

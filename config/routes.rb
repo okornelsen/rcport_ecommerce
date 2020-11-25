@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :products, only: %i[index show edit update]
   resources :categories, only: %i[index show]
   resources :pricetypes, only: :show
-  resources :cart, only: %i[index create destroy]
+  resources :cart, only: %i[index create update destroy]
   resources :home, only: :index do
     collection do
       get "search"
