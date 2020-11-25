@@ -1,38 +1,27 @@
 <br/>
 <div class="card-deck">
   <div class="row">
-    <div class="col-8">
-    <% flash.each do |type, msg| %>
-      <div class="alert alert-primary">
-        <%= msg %>
-      </div>
-    <% end %>
+    <div class="col-lg-6 col-md-12 mb-3">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-dark">Your cart</span>
+        <span class="badge bg-dark rounded-pill"><%= @items.size %></span>
+      </h4>
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-primary">
+          <%= msg %>
+        </div>
+      <% end %>
       <ul class="list-group">
-        <li class="list-group-item list-group-item-dark">
-          <div class="row">
-            <div class="col-8">
-              <p>Name</p>
-            </div>
-            <div class="col-2">
-              <p>Quantity</p>
-            </div>
-            <div class="col-1">
-              <p>Price</p>
-            </div>
-            <div class="col-1">
-            </div>
-          </div>
-        </li>
       <% @items.each do |product| %>
         <li class="list-group-item">
           <div class="row">
             <div class="col-8">
               <p><%= product.name %></p>
             </div>
-            <div class="col-2">
+            <div class="col-1">
               <p><%= session[:cart][product.id.to_s] %></p>
             </div>
-            <div class="col-1">
+            <div class="col-2">
             <% if product.saleprice.nil? %>
               <p><%= number_to_currency(product.price.to_f / 100 * session[:cart][product.id.to_s], precision: 2) %></p>
             <% else %>
@@ -46,15 +35,15 @@
           </div>
         </li>
         <% end %>
-        <li class="list-group-item list-group-item-dark">
+        <li class="list-group-item">
           <div class="row">
             <div class="col-8">
-              <p>Total</p>
-            </div>
-            <div class="col-2">
+              <p>Total (CAD)</p>
             </div>
             <div class="col-1">
-              <p><%= number_to_currency(@count.to_f / 100, precision: 2) %></p>
+            </div>
+            <div class="col-2">
+              <p><strong><%= number_to_currency(@count.to_f / 100, precision: 2) %></strong></p>
             </div>
             <div class="col-1">
             </div>
@@ -62,8 +51,30 @@
         </li>
       </ul>
     </div>
-    <div class="col-4">
-      <p>Payment</p>
+    <div class="col-lg-6 col-md-12">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-dark">Payment Information</span>
+      </h4>
+      <%= form_with do %>
+
+        <div class="field">
+          <%= label_tag(:email, "Email:") %>
+          <%= email_field(:email, :address) %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <%= label_tag(:address, "Address:") %>
+            <%= email_field(:address, :address) %>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <%= label_tag(:province, "Province:") %>
+            <%= select_tag(:province, options_from_collection_for_select(Province.all.order(:abbrev), :id, :abbrev)) %>
+          </div>
+        </div>
+
+      <% end %>
     </div>
   </div>
 </div>
