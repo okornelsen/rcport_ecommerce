@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   require "date"
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :initialize_session
+  helper_method :cart
   before_action :set_categories_dropdown
-  before_action :update_new_products
 
   def search
     wildcard_search = "%#{params[:keywords]}%"
@@ -20,10 +20,20 @@ class ApplicationController < ActionController::Base
     @categories_dropdown = Category.order(:name)
   end
 
+  private
+
+  def cart
+    Product.find(session[:cart].keys)
+  end
+
+  def initialize_session
+    session[:cart] ||= {}
+  end
+
   protected
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    added_attrs = %i[username email password password_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end

@@ -168,16 +168,19 @@ height: 5px;
   display: flex;
   justify-content: center;
   vertical-align: bottom;
-}
 
-.sizes button{
-  padding: 0.5rem 2rem;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 2px 5px black;
-  width: 80%;
-  color: $dark;
+  button{
+    padding: 0.5rem 2rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px black;
+  }
+
+  .quantity-btn{
+    padding: 0.5rem 1rem;
+    margin: 0rem 0.5rem;
+  }
 }
 
 .pagination a, .pagination span.current, .pagination span.gap {
@@ -202,4 +205,13 @@ height: 5px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+.item_quantity{
+  height: 40px;
+  padding: 0.5rem 1rem;
+  margin: 0rem 1rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px black;
 }

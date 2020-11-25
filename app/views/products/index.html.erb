@@ -2,35 +2,51 @@
   <div class="row">
     <% @products.each do |product| %>
       <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
-        <a class="hover_card" href="<%= product_path product.id %>">
-          <div class="card">
-            <% if product.pricetype.name == "New" %>
-              <div class="card_banner_new">
-                <h2><%= product.pricetype.name %>!</h2>
-              </div>
-            <% elsif product.pricetype.name == "On Sale" %>
-              <div class="card_banner_sale">
-                <h2><%= product.pricetype.name %>!</h2>
-              </div>
-            <% end %>
-            <div class="car car-index">
+        <div class="card">
+          <% if product.pricetype.name == "New" %>
+            <div class="card_banner_new">
+              <h2><%= product.pricetype.name %>!</h2>
+            </div>
+          <% elsif product.pricetype.name == "On Sale" %>
+            <div class="card_banner_sale">
+              <h2><%= product.pricetype.name %>!</h2>
+            </div>
+          <% end %>
+          <div class="car car-index">
+            <a class="hover_card" href="<%= product_path product.id %>">
               <% if product.image.present? %>
                 <%= image_tag product.image, class:"card-img-top" %>
               <% end %>
-            </div>
-            <div class="info">
-            <% if product.saleprice.nil? %>
-              <h1><%= number_to_currency(product.price.to_i / 100) %></h1>
-            <% else %>
-              <h1><del><%= number_to_currency(product.price.to_i / 100) %></del> <%= number_to_currency(product.saleprice.to_i / 100) %></h1>
-            <% end %>
-              <h2><%= product.name %></h2>
-            </div>
-            <div class="sizes">
-              <button type="button" class="btn btn-outline-dark">Add to Cart</button>
-            </div>
+              </a>
           </div>
-        </a>
+          <div class="info">
+          <% if product.saleprice.nil? %>
+            <h1><%= number_to_currency(product.price.to_f / 100) %></h1>
+          <% else %>
+            <h1><del><%= number_to_currency(product.price.to_f / 100) %></del> <%= number_to_currency(product.saleprice.to_f / 100) %></h1>
+          <% end %>
+            <h2><%= product.name %></h2>
+          </div>
+          <div class="sizes">
+            <% if cart.include?(product) %>
+              <%= button_to cart_path(product), method: :delete, class:"btn btn-outline-dark quantity-btn"  do %>
+                -
+              <% end %>
+              <div class="item_quantity">
+                <p>Quantity: <%= session[:cart][product.id.to_s] %></p>
+              </div>
+              <%= form_with url: cart_index_path, method: :post do %>
+                <%= hidden_field_tag(:id, product.id) %>
+                <%= button_tag '+', class:"quantity-btn btn btn-outline-dark" %>
+              <% end %>
+            <% else %>
+              <%= form_with url: cart_index_path, method: :post do %>
+                <%= hidden_field_tag(:id, product.id) %>
+                <%= button_tag 'Add To Cart', class:"btn btn-outline-dark" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
    </div>
