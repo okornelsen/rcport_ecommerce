@@ -13,6 +13,16 @@
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province_id %><br />
+    <%= f.select :province_id, options_from_collection_for_select(Province.all.order(:name), :id, :name) %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

@@ -10,7 +10,17 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province_id %><br />
+    <%= f.select :province_id, options_from_collection_for_select(Province.all.order(:name), :id, :name) %>
   </div>
 
   <div class="field">
