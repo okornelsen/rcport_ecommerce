@@ -28,7 +28,6 @@ class CartController < ApplicationController
   def update
     id = params[:id]
     session[:cart][id] -= 1
-
     session[:cart].delete(id) if session[:cart][id].zero?
 
     redirect_to products_path
@@ -37,7 +36,8 @@ class CartController < ApplicationController
   def destroy
     id = params[:id]
     session[:cart].delete(id)
+    @deleted_id = Product.find(id)
 
-    redirect_to cart_index_path
+    redirect_to cart_index_path, notice: "Successfully removed " + @deleted_id.name + " from your shopping cart!"
   end
 end
